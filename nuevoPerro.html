@@ -69,33 +69,44 @@
                 <div class="col-10 offset-1">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item" aria-current="page">
+                            <li class="breadcrumb-item active" aria-current="page">
                                 <a href="" class="menuBread">Inicio</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                    Administración
+                                <a href="" class="menuBread">Cliente</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                Nuevo perro
                             </li>
                         </ol>
                     </nav>
                 </div>
             </div>
             <div class="row">
-                <div class="col-12 col-md-10 offset-md-1 col-xl-4 offset-xl-1">
+                <div class="col-10 col-md-10 offset-md-1">
+                    <h2>Introducir datos del nuevo perro</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-auto offset-md-1">
                     <form>
                         <div class="form-group">
-                            <label for="newPass">Nueva contraseña</label>
-                            <input type="password" class="form-control" id="newPass" aria-describedby="emailHelp" placeholder="******">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" class="form-control" id="nombre" aria-describedby="nombre" placeholder="Enter a name">
                         </div>
                         <div class="form-group">
-                            <label for="newPass2">Repetir contraseña</label>
-                            <input type="password" class="form-control" id="newPass2" placeholder="******">
+                            <label for="chip">Chip</label>
+                            <input type="text" class="form-control" id="chip" aria-describedby="chip" placeholder="Enter his/her chip">
                         </div>
-                        <button type="submit" class="btn btn-outline-dark">Cambiar</button>
+                        <div class="form-group">
+                            <label for="raza">Raza</label>
+                            <input type="text" class="form-control" id="raza" aria-describedby="raza" placeholder="Enter his/her race">
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-dark">Submit</button>
                     </form>
                 </div>
-
             </div>
-
             <div class="row">
                 <div class="col mt-5 pie">
                     <footer id="contact">
