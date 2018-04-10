@@ -1,0 +1,192 @@
+<html>
+
+<head>
+    <!-- metas -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- CSS Styling Link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Scripting link (Jquery, Angular, bootstrap script, etc) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
+        crossorigin="anonymous">//This is a jquery script
+        </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <!-- Font Awesome Script-->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl"
+        crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs">
+                <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+                    <div class="container">
+                        <a class="navbar-brand js-scroll-trigger menuLink" href="#page-top">Clinican</a>
+                        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarResponsive">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link js-scroll-trigger menuLink" href="#about">Gestionar perros</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link js-scroll-trigger menuLink" href="#services">Nuevo perro</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link js-scroll-trigger menuLink" href="#portfolio">Historial</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link menuLink">Configuración</a>
+                                    <i class="fas fa-cog"></i>
+                                </li>
+                                <li>
+                                    <a class="nav-link menuLink">Antonio</a>
+                                </li>
+                                <li>
+                                    <a href="" class="nav-link menuLink">Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="cuerpo">
+            <div class="row">
+                <div class="col-10 offset-1">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="#" class="menuBread">Inicio</a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <a href="#" class="menuBread">Cliente</a>
+                            </li>
+                            <li class="breadcrumb-item active menuBread" aria-current="page">Gestión de perros</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-10 offset-1">
+                    <form class="form-inline">
+                        <div class="form-group mb-2">
+                            <label for="dni" class="sr-only">DNI</label>
+                            <span class="mr-2">DNI:</span>
+                            <input type="text" class="form-control" id="dni" placeholder="XXXXXXXX-A">
+                        </div>
+                        <div class="form-group mx-sm-3 mb-2">
+                            <label for="nombre" class="sr-only">Nombre</label>
+                            <span class="mr-2">Nombre:</span>
+                            <input type="password" class="form-control" id="nombre" placeholder="Pepe">
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-dark mb-2 mr-2">Buscar</button>
+                        <button type="submit" class="btn btn-outline-dark mb-2">Todos</button>
+                    </form>
+                </div>
+                <div class="col-10 offset-1 col-md-10 offset-md-1">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">DNI</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Teléfono</th>
+                                <th scope="col">Deuda</th>
+                                <th scope="col">Nº Perros</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>@twitter</td>
+                                <td>@mdo</td>
+                                <td>@mdo</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-10 offset-1 col-md-10 offset-md-1 mt-4">
+                    <div class="row">
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-outline-dark mb-2 mr-2">Añadir</button>
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-outline-dark mb-2">Modificar</button>
+                        </div>
+                        <div class="col-auto">
+                        <button type="submit" class="btn btn-outline-dark mb-2 mr-2">Gestionar perros</button>
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-outline-dark mb-2">Eliminar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mt-5 pie">
+                    <footer id="contact">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-4 ml-auto text-center">
+                                    <i class="fa fa-phone fa-3x mb-3 sr-contact"></i>
+                                    <p>622 64 01 46</p>
+                                </div>
+                                <div class="col-lg-4 mr-auto text-center">
+                                    <a href="">
+                                        <i class="fab fa-twitter fa-3x mb-3 sr-contact"></i>
+                                    </a>
+                                    <a href="">
+                                        <i class="fab fa-youtube fa-3x mb-3 sr-contact"></i>
+                                    </a>
+                                    <a href="">
+                                        <i class="fab fa-facebook fa-3x mb-3 sr-contact"></i>
+                                    </a>
+                                    <p>
+                                        <a href="">Aviso legal</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
