@@ -92,15 +92,15 @@
                     <form>
                         <div class="form-group">
                             <label for="nombre">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" aria-describedby="nombre" placeholder="Enter a name">
+                            <input type="text" class="form-control" id="nombre" aria-describedby="nombre" placeholder="Enter a name" pattern="^[A-Za-z]+$" required>
                         </div>
                         <div class="form-group">
                             <label for="chip">Chip</label>
-                            <input type="text" class="form-control" id="chip" aria-describedby="chip" placeholder="Enter his/her chip">
+                            <input type="text" class="form-control" id="chip" aria-describedby="chip" placeholder="Enter his/her chip" pattern="^[A-Za-z0-9]{4}$" required>
                         </div>
                         <div class="form-group">
                             <label for="raza">Raza</label>
-                            <input type="text" class="form-control" id="raza" aria-describedby="raza" placeholder="Enter his/her race">
+                            <input type="text" class="form-control" id="raza" aria-describedby="raza" placeholder="Enter his/her race"  pattern="^[A-Za-z]+$" required>
                         </div>
 
                         <button type="submit" class="btn btn-outline-dark">Agregar</button>
