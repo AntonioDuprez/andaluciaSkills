@@ -98,15 +98,21 @@
                         </li>
                     </ul>
                     <div id="tabs-1">
-                        <div class="row">
+                        <div class="row" id="formularioSolicitud">
                             <div class="col-12 col-md-10 col-xl-4">
                                 <form>
                                     <div class="form-group">
                                         <label for="direccion">Dirección de la visita:</label>
                                         <input type="text" class="form-control" id="direccion" aria-describedby="direccion" required>
                                     </div>
-                                    <button type="submit" class="btn btn-outline-dark">Solicitar visita</button>
+                                    <button type="button" class="btn btn-outline-dark" id="solicitud">Solicitar visita</button>
                                 </form>
+                            </div>
+                        </div>
+                        <div class="row" id="solicitudEspera">
+                            <div class="col-12 col-md-10 col-xl-4">
+                                <p>Su solicitud será atendida en breve</p>
+                                <img src="images/ambulanciaPerro.png" alt="ambulanciaPerro" width="250" id="ambulanciaPerro">
                             </div>
                         </div>
                     </div>
@@ -164,6 +170,7 @@
             </div>
         </div>
     </div>
+    <script src="js/solicitud.js"></script>
 </body>
 
 </html>

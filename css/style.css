@@ -36,3 +36,43 @@ li a:hover{
 #tabs a{
     color: black;
 }
+#solicitudEspera{
+    display: none;
+}
+#ambulanciaPerro{
+    position: relative;
+    animation: movimiento 6s 1;
+}
+
+@keyframes movimiento {
+    0%{
+        left: 0;
+        bottom: 0;
+        opacity: 1;
+    }
+    25%{
+        left: 1000px;
+        bottom: 100px;
+    }
+    45%{
+        bottom: 200px;
+        left: 500px;
+    }
+    65%{
+        left: 0;
+        bottom: 100px;
+    }
+    85%{
+        left: 500px;
+        bottom: 0;
+    }
+    98%{
+        opacity: 1;
+    }
+    100%{
+        left: 1000px;
+        bottom: 100px;
+        opacity: 0;
+    }
+    
+}
