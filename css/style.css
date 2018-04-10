@@ -1,3 +1,6 @@
+.cuerpo{
+    min-width: 500px;
+}
 #mainNav, .pie{
     background-color: rgba(0, 0, 0, 0.877);
     color: white;
@@ -17,9 +20,16 @@
 a{
     color: white;
 }
-a:hover{
+a:hover, #menuLink:hover{
     text-decoration: none;
+    color: rgb(255, 112, 77) !important;
 }
 .navbar-toggler-icon{
     color:white;
+}
+li a:hover{
+    color: black;
+}
+.menuBread{
+    color: black;
 }

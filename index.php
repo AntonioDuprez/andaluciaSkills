@@ -40,24 +40,30 @@
                 <div class="col-xs">
                     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
                         <div class="container">
-                            <a class="navbar-brand js-scroll-trigger" href="#page-top">Clinican</a>
+                            <a class="navbar-brand js-scroll-trigger menuLink" href="#page-top">Clinican</a>
                             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                             </button>
                             <div class="collapse navbar-collapse" id="navbarResponsive">
                             <ul class="navbar-nav ml-auto">
                                 <li class="nav-item">
-                                <a class="nav-link js-scroll-trigger" href="#about">Gestionar perros</a>
+                                <a class="nav-link js-scroll-trigger menuLink" href="#about">Gestionar perros</a>
                                 </li>
                                 <li class="nav-item">
-                                <a class="nav-link js-scroll-trigger" href="#services">Nuevo perro</a>
+                                <a class="nav-link js-scroll-trigger menuLink" href="#services">Nuevo perro</a>
                                 </li>
                                 <li class="nav-item">
-                                <a class="nav-link js-scroll-trigger" href="#portfolio">Historial</a>
+                                <a class="nav-link js-scroll-trigger menuLink" href="#portfolio">Historial</a>
                                 </li>
                                 <li>
-                                <a class="nav-link">Configuración</a>
+                                <a class="nav-link menuLink">Configuración</a>
                                 <i class="fas fa-cog"></i>
+                                </li>
+                                <li>
+                                    <a class="nav-link menuLink">Antonio</a>
+                                </li>
+                                <li>
+                                    <a href="" class="nav-link menuLink">Logout</a>
                                 </li>
                             </ul>
                             </div>
@@ -66,6 +72,17 @@
                 </div>
             </div>
             <div class="cuerpo">
+                <div class="row">
+                    <div class="col-10 offset-1">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    <a href="" class="menuBread">Inicio</a>
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-12 col-md-10 offset-md-1 col-xl-4 offset-xl-1">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vulputate non risus nec condimentum. Quisque efficitur arcu eget ornare fermentum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla lobortis id ligula a dapibus. Sed tincidunt, lorem non molestie vestibulum, mi ante bibendum magna, eget lobortis ex velit in nisl. Mauris ac dolor ut nulla interdum malesuada eget et velit. Duis eu lorem eleifend, tincidunt dui non, rhoncus risus. Nullam semper ultrices mattis. Sed vel semper tellus. Pellentesque ut ex vitae tortor faucibus tincidunt. Suspendisse fermentum, diam a tempus auctor, neque leo tincidunt orci, a ullamcorper lorem elit nec risus.
