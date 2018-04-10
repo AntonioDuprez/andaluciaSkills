@@ -1,0 +1,25 @@
+#mainNav, .pie{
+    background-color: rgba(0, 0, 0, 0.877);
+    color: white;
+}
+.navbar-light .navbar-brand, .navbar-light .navbar-nav .nav-link{
+    color:white;
+}
+.nav-link{
+    display: inline;
+}
+.cuerpo{
+    margin-top: 70px;
+}
+.pie{
+    padding-top: 20px;
+}
+a{
+    color: white;
+}
+a:hover{
+    text-decoration: none;
+}
+.navbar-toggler-icon{
+    color:white;
+}
