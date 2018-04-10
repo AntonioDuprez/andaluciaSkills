@@ -152,23 +152,23 @@
                     <div id="tabs-2">
                         <div class="row">
                             <div class="col-10">
-                                <form class="form-inline">
+                                <form class="form-inline" id="formularioCliente">
                                     <div class="form-group mb-2">
                                         <label for="dni" class="sr-only">DNI</label>
                                         <span class="mr-2">DNI:</span>
-                                        <input type="text" class="form-control" id="dni" placeholder="XXXXXXXX-A" pattern="^[0-9]{8}-?[A-Za-z]{1}$" required>
+                                        <input type="text" class="form-control" id="dni" placeholder="XXXXXXXX-A" pattern="^[0-9]{8}[A-Za-z]{1}$" required>
                                     </div>
                                     <div class="form-group mx-sm-3 mb-2">
-                                        <label for="nombre" class="sr-only">Nombre</label>
+                                        <label for="nombreCliente" class="sr-only">Nombre</label>
                                         <span class="mr-2">Nombre:</span>
-                                        <input type="password" class="form-control" id="nombre" placeholder="Pepe" pattern="^[a-zA-Z]+$" required>
+                                        <input type="text" class="form-control" id="nombreCliente" placeholder="Pepe" pattern="^[a-zA-Z]+$" required>
                                     </div>
                                     <div class="form-group mx-sm-3 mb-2">
                                         <input type="checkbox" class="form-control">
                                         <span class="ml-2">Deuda</span>
                                     </div>
-                                    <button type="submit" class="btn btn-outline-dark mb-2 mr-2">Buscar</button>
-                                    <a href="perros.html" class="btn btn-outline-dark mb-2">Todos</a>
+                                    <button type="submit" class="btn btn-outline-dark mb-2 mr-2" id="buscar">Buscar</button>
+                                    <a href="perros.html" class="btn btn-outline-dark mb-2" id="todos">Todos</a>
                                 </form>
                             </div>
                             <div class="col-10 col-md-10 ">
@@ -281,6 +281,7 @@
             </div>
         </div>
     </div>
+    <script src="js/dniController.js"></script>
 </body>
 
 </html>

@@ -41,7 +41,7 @@ li a:hover{
 }
 #ambulanciaPerro{
     position: relative;
-    animation: movimiento 6s 1;
+    animation: movimiento 10s infinite;
 }
 
 @keyframes movimiento {
