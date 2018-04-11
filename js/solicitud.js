@@ -4,6 +4,8 @@ $(function(){
             $("#formularioSolicitud").css("display", "none");
             $("#solicitudEspera").css("display", "flex");
             
-        }  
+        }else{
+            $("#direccion").css("border-color", "red");
+        }
     });
 });
