@@ -1,15 +1,15 @@
-<?php 
-    session_start();
-    if($_SESSION["usuario"]){
-        require_once("../app/Usuario.php");
-        $nombreUsuario = $_SESSION["usuario"];
-        $usuario = new Usuario();
-        $usuario->get_by_usuario("veterinarios", $nombreUsuario);
+<?php
+   session_start();
+   if($_SESSION["usuario"]){
+       require_once("../app/Usuario.php");
+       $nombreUsuario = $_SESSION["usuario"];
+       $usuario = new Usuario();
+       $usuario->get_by_usuario("veterinarios", $nombreUsuario);
 
-       
-    }else{
-        header('Location: login.html');
-    }
+      
+   }else{
+       header('Location: login.html');
+   }
 ?>
 <html>
 
@@ -47,7 +47,14 @@
 </head>
 
 <body>
-    <?php if(isset($nombreUsuario)){ ?>
+    <?php if(isset($nombreUsuario) && isset($_GET["chip"])){
+            $chip = $_GET["chip"];
+            require_once("../app/Perro.php");
+            $perro = new Perro();
+            $perro->get_by_chip($chip);
+            $consulta_datos = $perro->consultarDatosPerro();
+            $array_datos_perro = $consulta_datos->fetchAll();
+    ?>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xs">
@@ -94,137 +101,42 @@
                                     <a href="" class="menuBread">Inicio</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">
-                                    Veterinario
+                                <a href="" class="menuBread">Veterinario</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Consulta
                                 </li>
                             </ol>
                         </nav>
                     </div>
                 </div>
-
+                <?php if(!empty($array_datos_perro)){ ?>
                 <div class="row">
-                    <div class="col-10 offset-1" id="tabs">
-                        <ul>
-                            <li>
-                                <a href="#tabs-1">Visita</a>
-                            </li>
-                            <li>
-                                <a href="#tabs-3">Consulta</a>
-                            </li>
-                            <li>
-                                <a href="#tabs-2">Configuración</a>
-                            </li>
-                        </ul>
-                        <div id="tabs-1">
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal">
-                                Siguiente visita
-                            </button>
-
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Siguiente visita</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <?php $visitas = $usuario->comprobarVisitas(); $array_visitas = $visitas->fetchAll();?>
-                                            <?php if(!empty($array_visitas) ){
-                                                
-                                                echo "Nombre cliente: " . $array_visitas[0]["nombre"] . "<br/>";
-                                                echo "DNI: " . $array_visitas[0]["dni"] . "<br/>";
-                                                echo "Teléfono: " . $array_visitas[0]["telefono"] . "<br/>";
-                                                echo "Dirección cliente: " . $array_visitas[0]["direccion"];
-                                        ?>
-                                        <h3>Perros</h3>
-                                        <?php
-                                                $consulta_perros = $usuario->mostrarSusPerros($array_visitas[0]["dni"]);
-                                                $array_perros = $consulta_perros->fetchAll();
-                                                if(!empty($array_perros)){
-                                                    foreach ( $array_perros as $perro) {
-                                                        echo "Chip perro: "?> <a href="consultas.php?chip=<?= $perro["chip"] ?>"><?= $perro["chip"] ?></a> <?php echo "<br/>";
-                                                        echo "Nombre perro: " . $perro["nombre"] . "<br/>";
-                                                        echo "Raza perro: " . $perro["raza"] . "<br/><br/>";
-                                                    }
-                                                    
-                                                }
-                                               
-                                            ?>
-                                                
-                                            <?php } else{?>
-                                                
-                                            <?php echo "no hay visitas"; } ?>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="tabs-2">
-                            <div class="row">
-                                <div class="col-12 col-md-10 col-xl-4">
-                                    <form>
-                                        <div class="form-group">
-                                            <label for="nombre">Nombre:</label>
-                                            <input type="text" class="form-control" id="nombre" aria-describedby="nombre" value="Antonio" readonly>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="apellidos">Apellidos:</label>
-                                            <input type="text" class="form-control" id="apellidos" aria-describedby="apellidos" value="Duprez Hernandez" readonly>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="telefono">Telefono:</label>
-                                            <input type="text" class="form-control" id="telefono" aria-describedby="telefono">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="24horas">24 horas</label>
-                                            <input type="checkbox" id="24horas" aria-describedby="24horas" class="mt-5">
-
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="newPass">Nueva contraseña</label>
-                                            <input type="password" class="form-control" id="newPass" aria-describedby="emailHelp" placeholder="******">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="newPass2">Repetir contraseña</label>
-                                            <input type="password" class="form-control" id="newPass2" placeholder="******">
-                                        </div>
-                                        <button type="submit" class="btn btn-outline-dark">Cambiar</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="tabs-3">
-                            <div class="col-12 col-md-10 col-xl-4">
+                <div class="col-12 col-md-10 col-xl-4 offset-1">
                                 <form>
                                     <div class="form-group">
                                         <label for="nombre">Nombre:</label>
-                                        <input type="text" class="form-control" id="nombre" aria-describedby="nombre" value="Antonio" readonly>
+                                        <input type="text" class="form-control" id="nombre" aria-describedby="nombre" value="<?= $array_datos_perro[0]["0"] ?>" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="dni">Dni:</label>
-                                        <input type="text" class="form-control" id="dni" aria-describedby="dni" value="77438482N" readonly>
+                                        <input type="text" class="form-control" id="dni" aria-describedby="dni" value="<?= $array_datos_perro[0]["dni"] ?>" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="telefono">Telefono:</label>
-                                        <input type="text" class="form-control" id="telefono" aria-describedby="telefono" value="622640146" readonly>
+                                        <input type="text" class="form-control" id="telefono" aria-describedby="telefono" value="<?= $array_datos_perro[0]["telefono"] ?>" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="chip">Chip</label>
-                                        <input type="text" class="form-control" id="chip" aria-describedby="chip" value="622C" readonly>
+                                        <input type="text" class="form-control" id="chip" aria-describedby="chip" value="<?= $array_datos_perro[0]["chip"] ?>" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="nombrePerro">Nombre</label>
-                                        <input type="text" class="form-control" id="nombrePerro" aria-describedby="nombrePerro" value="Colega" readonly>
+                                        <input type="text" class="form-control" id="nombrePerro" aria-describedby="nombrePerro" value="<?= $array_datos_perro[0]["nombre"] ?>" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="raza">Raza</label>
-                                        <input type="text" class="form-control" id="raza" aria-describedby="raza" value="Pastor aleman" readonly>
+                                        <input type="text" class="form-control" id="raza" aria-describedby="raza" value="<?= $array_datos_perro[0]["raza"] ?>" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="observaciones">Observaciones</label>
@@ -252,8 +164,20 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <?php ?>
-                                                    No existen datos de este historial
+                                                    <?php 
+                                                        $consulta_perro = $perro->mostrarConsultas($chip);
+                                                        $array_datos_consulta_perro = $consulta_perro->fetchAll();
+                                                        if(!empty($array_datos_consulta_perro)){
+                                                            foreach ($array_datos_consulta_perro as $dato) {
+                                                                echo "<h3>Registro</h3>";
+                                                                echo "Chip: " . $dato["chip"] ."<br>";
+                                                                echo "Nombre: " . $dato["veterinario"] ."<br>";
+                                                                echo "Chip: " . $dato["importe"] ."<br><br>";
+                                                            }
+                                                        }else{
+                                                    ?>
+                                                        No existen datos de este historial
+                                                    <?php    } ?>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -264,9 +188,8 @@
 
                                 </form>
                             </div>
-                        </div>
-                    </div>
                 </div>
+                <?php }?>
                 <div class="row">
                     <div class="col mt-5 pie">
                         <footer id="contact">
