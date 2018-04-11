@@ -45,6 +45,11 @@
             $this->usuario = $consulta->fetch(PDO::FETCH_ASSOC);
             return $this->usuario;
         }
+        function get_by_usuario2($tabla, $nombreUsuario){
+            $consulta = $this->conexion->query("select * from $tabla where dni='$nombreUsuario'");
+            $this->usuario = $consulta->fetch(PDO::FETCH_ASSOC);
+            return $this->usuario;
+        }
         function comprobarVisitas(){
             // select c.nombre, p.raza  from visitas v, clientes c, perros p
             // where c.dni=v.cliente and c.dni=p.dueño and v.atendida='0' limit 1
@@ -61,4 +66,23 @@
             return $consulta;
         }
 
+        function cambiarContrasena($pass1, $pass2){
+            $ok = false;
+            if($pass1 == $pass2){
+                $this->conexion->exec("UPDATE veterinarios
+                    SET password = '".md5($pass1)."' WHERE usuario='".$this->usuario["usuario"]."'");
+                $ok = true;
+            }
+            return $ok;
+        }
+
+        function cambiarContrasena2($pass1, $pass2){
+            $ok = false;
+            if($pass1 == $pass2){
+                $this->conexion->exec("UPDATE clientes
+                    SET password = '".md5($pass1)."' WHERE dni='".$this->usuario["dni"]."'");
+                $ok = true;
+            }
+            return $ok;
+        }
     }

@@ -168,34 +168,41 @@
                         <div id="tabs-2">
                             <div class="row">
                                 <div class="col-12 col-md-10 col-xl-4">
-                                    <form>
+                                    <form method="get" action="<?php echo $_SERVER['PHP_SELF'] ?>">
                                         <div class="form-group">
                                             <label for="nombre">Nombre:</label>
-                                            <input type="text" class="form-control" id="nombre" aria-describedby="nombre" value="Antonio" readonly>
+                                            <input type="text" class="form-control" id="nombre" aria-describedby="nombre" value="<?=$nombreUsuario?>" readonly>
                                         </div>
                                         <div class="form-group">
                                             <label for="apellidos">Apellidos:</label>
-                                            <input type="text" class="form-control" id="apellidos" aria-describedby="apellidos" value="Duprez Hernandez" readonly>
+                                            <input type="text" class="form-control" id="apellidos" aria-describedby="apellidos" value="<?= $usuario->usuario["apellidos"] ?>" readonly>
                                         </div>
                                         <div class="form-group">
                                             <label for="telefono">Telefono:</label>
-                                            <input type="text" class="form-control" id="telefono" aria-describedby="telefono">
+                                            <input type="text" class="form-control" id="telefono" aria-describedby="telefono" value="<?=$usuario->usuario["telefono"]?>">
                                         </div>
                                         <div class="form-group">
                                             <label for="24horas">24 horas</label>
-                                            <input type="checkbox" id="24horas" aria-describedby="24horas" class="mt-5">
+                                            <input type="checkbox" id="24horas" aria-describedby="24horas" class="mt-5" value="<?=$usuario->usuario["24horas"]?>">
 
                                         </div>
                                         <div class="form-group">
                                             <label for="newPass">Nueva contraseña</label>
-                                            <input type="password" class="form-control" id="newPass" aria-describedby="emailHelp" placeholder="******">
+                                            <input type="password" class="form-control" name="newPass" id="newPass" aria-describedby="emailHelp" placeholder="******">
                                         </div>
                                         <div class="form-group">
                                             <label for="newPass2">Repetir contraseña</label>
-                                            <input type="password" class="form-control" id="newPass2" placeholder="******">
+                                            <input type="password" class="form-control" name="newPass2" id="newPass2" placeholder="******">
                                         </div>
                                         <button type="submit" class="btn btn-outline-dark">Cambiar</button>
                                     </form>
+                                    <?php 
+                                        if(isset($_GET["newPass"]) && isset($_GET["newPass2"])){
+                                            if($usuario->cambiarContrasena($_GET["newPass"], $_GET["newPass2"])){
+                                                echo "Su contraseña ha sido cambiada";
+                                            }
+                                        }
+                                    ?>
                                 </div>
                             </div>
                         </div>

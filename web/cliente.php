@@ -1,7 +1,10 @@
 <?php 
     session_start();
     if($_SESSION["usuario"]){
+        require_once("../app/Usuario.php");
         $nombreUsuario = $_SESSION["usuario"];
+        $usuario = new Usuario();
+        $usuario->get_by_usuario2("clientes", $nombreUsuario);
     }else{
         header('Location: login.html');
     }
@@ -128,21 +131,29 @@
                         <div id="tabs-2">
                             <div class="row">
                                 <div class="col-12 col-md-10 col-xl-4">
-                                    <form>
+                                    <form method="get" action="<?php echo $_SERVER['PHP_SELF'] ?>">
                                         <div class="form-group">
                                             <label for="telefono">Telefono:</label>
-                                            <input type="text" class="form-control" id="telefono" aria-describedby="telefono" pattern="^[0-9]{9}$" required>
+                                            <input type="text" class="form-control" id="telefono" aria-describedby="telefono" pattern="^[0-9]{9}$" required
+                                                value="<?= $usuario->usuario["telefono"] ?>">
                                         </div>
                                         <div class="form-group">
                                             <label for="newPass">Nueva contraseña</label>
-                                            <input type="password" class="form-control" id="newPass" aria-describedby="emailHelp" placeholder="******">
+                                            <input type="password" class="form-control" name="newPass" id="newPass" aria-describedby="emailHelp" placeholder="******">
                                         </div>
                                         <div class="form-group">
                                             <label for="newPass2">Repetir contraseña</label>
-                                            <input type="password" class="form-control" id="newPass2" placeholder="******">
+                                            <input type="password" class="form-control" name="newPass2" id="newPass2" placeholder="******">
                                         </div>
                                         <button type="submit" class="btn btn-outline-dark">Cambiar</button>
                                     </form>
+                                    <?php 
+                                        if(isset($_GET["newPass"]) && isset($_GET["newPass2"])){
+                                            if($usuario->cambiarContrasena2($_GET["newPass"], $_GET["newPass2"])){
+                                                echo "Su contraseña ha sido cambiada";
+                                            }
+                                        }
+                                    ?>
                                 </div>
                             </div>
                         </div>
