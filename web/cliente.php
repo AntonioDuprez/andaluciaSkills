@@ -118,6 +118,7 @@
                                             <input type="text" class="form-control" id="direccion" aria-describedby="direccion" required>
                                         </div>
                                         <button type="button" class="btn btn-outline-dark" id="solicitud">Solicitar visita</button>
+                                        
                                     </form>
                                 </div>
                             </div>
