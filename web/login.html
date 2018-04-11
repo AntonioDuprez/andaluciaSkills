@@ -27,13 +27,13 @@
 </head>
 
 <body class="text-center">
-    <form class="form-signin">
+    <form class="form-signin" method="post" action="../app/comprobarLogin.php">
         <img class="mb-4" src="images/logotipo.png" alt="Clinican" id="logotipo">
         <h1 class="h3 mb-3 font-weight-normal">¡Únete a nosotros!</h1>
         <label for="usuario" class="sr-only">Usuario</label>
-        <input type="text" id="usuario" class="form-control" placeholder="Usuario" required autofocus>
-        <label for="inputPassword" class="sr-only">Clave</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Usuario" required autofocus>
+        <label for="password" class="sr-only">Clave</label>
+        <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
         <div class="checkbox mb-3">
             <label>
                 <input type="checkbox" value="remember-me"> Recuérdame
